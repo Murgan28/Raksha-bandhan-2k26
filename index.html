@@ -13,7 +13,7 @@
 </head>
 <body>
 
-  <!-- Audio Element (Make sure your file is named song.mp3) -->
+  <!-- Audio Element -->
   <audio id="bg-audio" src="song.mp3" preload="auto" loop></audio>
 
   <!-- Interactive FX Canvas -->
@@ -23,15 +23,13 @@
   <div class="custom-cursor" id="cursor"></div>
   <div class="custom-cursor-dot" id="cursor-dot"></div>
 
-  <!-- =========================================================================
-       STAGE 1: WELCOME SANCTUARY (5 COMPLETE SECTIONS)
-       ========================================================================= -->
+  <!-- STAGE 1: WELCOME SANCTUARY -->
   <div class="stage-view active" id="stage-welcome">
     
-    <!-- SECTION 1: HERO -->
+    <!-- Hero Section -->
     <header class="welcome-hero-section">
-      <div class="hero-rakhi-wrapper">
-        <div class="hero-rakhi-aura" id="hero-rakhi-btn">
+      <div class="hero-rakhi-wrapper" id="hero-rakhi-interactive">
+        <div class="hero-rakhi-aura">
           <svg class="hero-rakhi-center" viewBox="0 0 120 120">
             <defs>
               <radialGradient id="rakhiGold" cx="50%" cy="50%" r="50%">
@@ -57,7 +55,7 @@
             <circle cx="60" cy="60" r="7" fill="#d50000" />
           </svg>
         </div>
-        <div class="hero-hint-badge" id="hero-badge-btn">TOUCH THE RAKHI ✨</div>
+        <button class="hero-hint-badge" type="button">TOUCH THE RAKHI ✨</button>
       </div>
 
       <p class="section-tag">An Auspicious Royal Celebration</p>
@@ -69,7 +67,7 @@
       </p>
     </header>
 
-    <!-- SECTION 2: COMMAND CENTER -->
+    <!-- Command Center -->
     <section class="section-container">
       <div class="section-heading">
         <span class="section-tag">FESTIVAL TIME & VENUE</span>
@@ -115,7 +113,7 @@
       </div>
     </section>
 
-    <!-- SECTION 3: SACRED MUHURAT -->
+    <!-- Muhurat Grid -->
     <section class="section-container">
       <div class="section-heading">
         <span class="section-tag">SACRED TRADITION</span>
@@ -149,7 +147,7 @@
       </div>
     </section>
 
-    <!-- SECTION 4: 4 PROMISES -->
+    <!-- 4 Promises -->
     <section class="section-container">
       <div class="section-heading">
         <span class="section-tag">UNBREAKABLE VOWS</span>
@@ -216,7 +214,7 @@
       </div>
     </section>
 
-    <!-- SECTION 5: MOOD BOOSTER -->
+    <!-- Mood Booster -->
     <section class="section-container">
       <div class="section-heading">
         <span class="section-tag">INSTANT JOY</span>
@@ -232,7 +230,7 @@
       </div>
     </section>
 
-    <!-- STAGE 1 CTA BUTTON -->
+    <!-- Stage 1 CTA -->
     <div class="stage-cta-wrap">
       <p class="section-tag" style="letter-spacing: 5px;">THE JOURNEY CONTINUES</p>
       <h2 class="font-cinzel gold-text" style="font-size: 2rem; margin: 8px 0 25px;">Ready To Unlock The Vault?</h2>
@@ -244,9 +242,7 @@
 
   </div>
 
-  <!-- =========================================================================
-       STAGE 2: 18-SECOND LOADING PORTAL
-       ========================================================================= -->
+  <!-- STAGE 2: 18-SECOND LOADING PORTAL -->
   <div class="stage-view" id="stage-loading">
     <div class="loading-portal-container">
       <div class="portal-rakhi-spinner">
@@ -266,9 +262,7 @@
     </div>
   </div>
 
-  <!-- =========================================================================
-       STAGE 3: PASSCODE SCREEN
-       ========================================================================= -->
+  <!-- STAGE 3: PASSCODE SCREEN -->
   <div class="stage-view" id="stage-passcode">
     <div class="passcode-container">
       
@@ -315,7 +309,7 @@
     </div>
   </div>
 
-  <!-- PUNISHMENT MODAL (3+ WRONG ATTEMPTS) -->
+  <!-- PUNISHMENT MODAL -->
   <div class="punishment-modal" id="punishment-modal">
     <div class="punishment-card glass-panel">
       <div style="font-size: 3rem; margin-bottom: 10px;">😂👑</div>
@@ -336,9 +330,7 @@
     </div>
   </div>
 
-  <!-- =========================================================================
-       STAGE 4: 14 MEMORIES GALLERY
-       ========================================================================= -->
+  <!-- STAGE 4: 14 MEMORIES GALLERY -->
   <div class="stage-view" id="stage-memories">
     <div class="section-container">
       
@@ -370,9 +362,7 @@
     </div>
   </div>
 
-  <!-- =========================================================================
-       STAGE 5: CARD STUDIO
-       ========================================================================= -->
+  <!-- STAGE 5: CARD STUDIO -->
   <div class="stage-view" id="stage-card-studio">
     <div class="section-container">
       
@@ -418,7 +408,6 @@
         </div>
       </div>
 
-      <!-- Card Reveal Area -->
       <div class="card-reveal-wrapper" id="card-reveal-area">
         <div class="generated-card-display" id="card-preview-container">
           <svg class="card-mandala-bg" viewBox="0 0 100 100">
@@ -457,9 +446,7 @@
     </div>
   </div>
 
-  <!-- =========================================================================
-       STAGE 6: FINAL SANCTUARY & MUSIC PLAYER
-       ========================================================================= -->
+  <!-- STAGE 6: FINAL SANCTUARY -->
   <div class="stage-view" id="stage-final">
     <div class="final-sanctuary">
       
@@ -479,7 +466,7 @@
         </p>
       </div>
 
-      <!-- Real Song Audio Deck -->
+      <!-- Real Song Deck -->
       <div class="glass-panel" style="max-width: 600px; margin: 40px auto; padding: 25px;">
         <h3 class="font-cinzel gold-text" style="font-size: 1.2rem; margin-bottom: 10px;">Our Raksha Bandhan Soundtrack 🎵</h3>
         <p id="final-track-info" style="font-size: 0.85rem; opacity: 0.85; margin-bottom: 15px; color: #ffe082;">
@@ -504,7 +491,7 @@
   <!-- FULLSCREEN LIGHTBOX -->
   <div id="memory-lightbox">
     <div class="lightbox-card">
-      <button class="lightbox-close-btn" onclick="closeMemoryLightbox()">✕</button>
+      <button class="lightbox-close-btn" type="button" onclick="closeMemoryLightbox(event)">✕</button>
       <div class="lightbox-img-box">
         <img id="lb-img" src="" alt="Nidhu Memory" />
       </div>
