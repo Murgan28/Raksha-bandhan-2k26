@@ -1,5 +1,5 @@
 /* =========================================================================
-   APPLICATION STATE & 14 MEMORIES CONFIGURATION
+   APPLICATION STATE & COMPLETE 14 PHOTOS DATA (FOR NIDHU)
    ========================================================================= */
 const APP_STATE = {
   currentStage: 'stage-welcome',
@@ -141,9 +141,9 @@ const MEMORIES_DATA = [
 ];
 
 /* =========================================================================
-   ROUTING
+   STAGE ROUTER (GLOBAL SCOPE)
    ========================================================================= */
-function switchStage(stageId) {
+window.switchStage = function(stageId) {
   synthClick();
   document.querySelectorAll('.stage-view').forEach(stage => {
     stage.classList.remove('active');
@@ -155,10 +155,10 @@ function switchStage(stageId) {
     APP_STATE.currentStage = stageId;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-}
+};
 
 /* =========================================================================
-   AUDIO & HAPTIC CLICKS
+   AUDIO CONTROLLER (DHAAGON SE BAANDHAA)
    ========================================================================= */
 function synthClick() {
   try {
@@ -168,7 +168,7 @@ function synthClick() {
     osc.type = 'sine';
     osc.frequency.setValueAtTime(800, audioCtx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.08);
-    gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+    gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.08);
     osc.connect(gain);
     gain.connect(audioCtx.destination);
@@ -177,7 +177,7 @@ function synthClick() {
   } catch (e) {}
 }
 
-function toggleSongPlayback() {
+window.toggleSongPlayback = function() {
   const audio = document.getElementById('bg-audio');
   const btn = document.getElementById('music-play-btn');
 
@@ -185,20 +185,28 @@ function toggleSongPlayback() {
 
   if (audio.paused) {
     audio.play().then(() => {
-      btn.innerText = 'Pause Song ⏸️';
+      if (btn) btn.innerText = 'Pause Song ⏸️';
       APP_STATE.audioPlaying = true;
-    }).catch(() => {
-      alert("Make sure 'song.mp3' is placed inside your project folder next to index.html!");
+    }).catch(err => {
+      console.warn("Retrying audio on tap...", err);
+      audio.load();
+      audio.play().then(() => {
+        if (btn) btn.innerText = 'Pause Song ⏸️';
+        APP_STATE.audioPlaying = true;
+      }).catch(finalErr => {
+        console.error("Playback error:", finalErr);
+        alert("Make sure 'song.mp3' is placed inside your GitHub repository next to index.html!");
+      });
     });
   } else {
     audio.pause();
-    btn.innerText = 'Play Song 🎵';
+    if (btn) btn.innerText = 'Play Song 🎵';
     APP_STATE.audioPlaying = false;
   }
-}
+};
 
 /* =========================================================================
-   STAGE 1: DYNAMIC CLOCK & INTERACTIONS
+   STAGE 1: DYNAMIC TIME & INTERACTIONS
    ========================================================================= */
 function updateDynamicClock() {
   const now = new Date();
@@ -215,7 +223,7 @@ function updateDynamicClock() {
 setInterval(updateDynamicClock, 1000);
 updateDynamicClock();
 
-function selectMuhurat(idx, el) {
+window.selectMuhurat = function(idx, el) {
   synthClick();
   document.querySelectorAll('.muhurat-card').forEach(card => card.classList.remove('active'));
   el.classList.add('active');
@@ -223,24 +231,24 @@ function selectMuhurat(idx, el) {
   if (descEl && MUHURAT_DESCS[idx]) {
     descEl.innerHTML = `<p class="font-serif" style="font-size: 1.15rem; line-height: 1.8; color: #fff8e1;">${MUHURAT_DESCS[idx]}</p>`;
   }
-}
+};
 
-function toggleVowCard(cardEl) {
+window.toggleVowCard = function(cardEl) {
   synthClick();
   cardEl.classList.toggle('flipped');
-}
+};
 
-function generateCompliment() {
+window.generateCompliment = function() {
   synthClick();
   const textEl = document.getElementById('compliment-text');
   const rand = COMPLIMENTS[Math.floor(Math.random() * COMPLIMENTS.length)];
   if (textEl) textEl.innerText = rand;
-}
+};
 
 /* =========================================================================
    STAGE 2: 18-SECOND LOADING PORTAL
    ========================================================================= */
-function startLoadingPortal() {
+window.startLoadingPortal = function() {
   switchStage('stage-loading');
 
   let timeLeft = 18;
@@ -274,12 +282,12 @@ function startLoadingPortal() {
       switchStage('stage-passcode');
     }
   }, 1000);
-}
+};
 
 /* =========================================================================
-   STAGE 3: PASSCODE & PUNISHMENT
+   STAGE 3: PASSCODE & PUNISHMENT SYSTEM
    ========================================================================= */
-function enterKey(num) {
+window.enterKey = function(num) {
   synthClick();
   if (APP_STATE.pinEntered.length < 8) {
     APP_STATE.pinEntered += num;
@@ -288,15 +296,14 @@ function enterKey(num) {
       validatePin();
     }
   }
-}
+};
 
-function clearKey() {
+window.clearKey = function() {
   synthClick();
   APP_STATE.pinEntered = '';
   updatePinDots();
-  const err = document.getElementById('lock-error-msg');
-  if (err) err.innerText = '';
-}
+  document.getElementById('lock-error-msg').innerText = '';
+};
 
 function updatePinDots() {
   for (let i = 0; i < 8; i++) {
@@ -307,12 +314,12 @@ function updatePinDots() {
   }
 }
 
-function submitManualPin() {
+window.submitManualPin = function() {
   synthClick();
   if (APP_STATE.pinEntered.length > 0) {
     validatePin();
   }
-}
+};
 
 function validatePin() {
   if (APP_STATE.pinEntered === APP_STATE.correctPin) {
@@ -321,34 +328,30 @@ function validatePin() {
   } else {
     APP_STATE.failedAttempts++;
     const wrap = document.getElementById('pin-wrap');
-    if (wrap) wrap.classList.add('shake-it');
+    wrap.classList.add('shake-it');
     
     if (APP_STATE.failedAttempts >= 3) {
-      const err = document.getElementById('lock-error-msg');
-      if (err) err.innerText = '';
+      document.getElementById('lock-error-msg').innerText = '';
       setTimeout(() => {
-        if (wrap) wrap.classList.remove('shake-it');
+        wrap.classList.remove('shake-it');
         clearKey();
-        const pModal = document.getElementById('punishment-modal');
-        if (pModal) pModal.classList.add('active');
+        document.getElementById('punishment-modal').classList.add('active');
       }, 600);
     } else {
-      const err = document.getElementById('lock-error-msg');
-      if (err) err.innerText = `Aiyo Nidhu 😂 Try: 28082026 (Attempts left: ${3 - APP_STATE.failedAttempts})`;
+      document.getElementById('lock-error-msg').innerText = `Aiyo Nidhu 😂 Try: 28082026 (Attempts left: ${3 - APP_STATE.failedAttempts})`;
       setTimeout(() => {
-        if (wrap) wrap.classList.remove('shake-it');
+        wrap.classList.remove('shake-it');
         clearKey();
       }, 900);
     }
   }
 }
 
-function resolvePunishment(correctAnswer) {
+window.resolvePunishment = function(correctAnswer) {
   synthClick();
   if (correctAnswer) {
     alert("Correct answer! 👑 Passcode chamber unlocked for you!");
-    const pModal = document.getElementById('punishment-modal');
-    if (pModal) pModal.classList.remove('active');
+    document.getElementById('punishment-modal').classList.remove('active');
     APP_STATE.failedAttempts = 0;
     APP_STATE.pinEntered = '28082026';
     updatePinDots();
@@ -358,10 +361,10 @@ function resolvePunishment(correctAnswer) {
   } else {
     alert("Incorrect! There is only one prettiest sister in Chennai: NIDHU! Try Option A 😂");
   }
-}
+};
 
 /* =========================================================================
-   STAGE 4: 14 MEMORIES
+   STAGE 4: 14 MEMORIES GALLERY & MODAL CLOSE
    ========================================================================= */
 function buildProceduralMemorySVG(title, color) {
   return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
@@ -417,7 +420,7 @@ function initMemoriesGallery() {
   });
 }
 
-function openMemoryLightbox(index) {
+window.openMemoryLightbox = function(index) {
   synthClick();
   APP_STATE.activeMemoryIndex = index;
   APP_STATE.viewedMemories.add(index);
@@ -427,63 +430,50 @@ function openMemoryLightbox(index) {
   const lbImg = document.getElementById('lb-img');
   const fallbackSvg = buildProceduralMemorySVG(mem.title, mem.svgColor);
   
-  if (lbImg) {
-    lbImg.onerror = () => { lbImg.src = fallbackSvg; };
-    lbImg.src = mem.imgSrc;
-    lbImg.style.objectPosition = mem.objectPos || 'center center';
-  }
+  lbImg.onerror = () => { lbImg.src = fallbackSvg; };
+  lbImg.src = mem.imgSrc;
+  lbImg.style.objectPosition = mem.objectPos || 'center center';
   
-  const tagEl = document.getElementById('lb-tag');
-  const titleEl = document.getElementById('lb-title');
-  const descEl = document.getElementById('lb-desc');
-  
-  if (tagEl) tagEl.innerText = `SACRED MEMORY ${String(mem.id).padStart(2, '0')} / 14`;
-  if (titleEl) titleEl.innerText = mem.title;
-  if (descEl) descEl.innerText = mem.desc;
-  
-  const lb = document.getElementById('memory-lightbox');
-  if (lb) lb.classList.add('active');
-}
+  document.getElementById('lb-tag').innerText = `SACRED MEMORY ${String(mem.id).padStart(2, '0')} / 14`;
+  document.getElementById('lb-title').innerText = mem.title;
+  document.getElementById('lb-desc').innerText = mem.desc;
+  document.getElementById('memory-lightbox').classList.add('active');
+};
 
-function closeMemoryLightbox() {
+window.closeMemoryLightbox = function(e) {
+  if (e) e.stopPropagation();
   synthClick();
-  const lb = document.getElementById('memory-lightbox');
-  if (lb) lb.classList.remove('active');
-}
+  const modal = document.getElementById('memory-lightbox');
+  if (modal) {
+    modal.classList.remove('active');
+  }
+};
 
-function nextMemory() {
+window.nextMemory = function() {
   APP_STATE.activeMemoryIndex = (APP_STATE.activeMemoryIndex + 1) % MEMORIES_DATA.length;
   openMemoryLightbox(APP_STATE.activeMemoryIndex);
-}
+};
 
-function prevMemory() {
+window.prevMemory = function() {
   APP_STATE.activeMemoryIndex = (APP_STATE.activeMemoryIndex - 1 + MEMORIES_DATA.length) % MEMORIES_DATA.length;
   openMemoryLightbox(APP_STATE.activeMemoryIndex);
-}
+};
 
 function updateMemoryProgress() {
   const count = APP_STATE.viewedMemories.size;
-  const countEl = document.getElementById('mem-unlocked-count');
-  if (countEl) countEl.innerText = `Memory ${String(count).padStart(2, '0')} / 14`;
-  
+  document.getElementById('mem-unlocked-count').innerText = `Memory ${String(count).padStart(2, '0')} / 14`;
   const pct = (count / 14) * 100;
-  const bar = document.getElementById('mem-progress-bar');
-  if (bar) bar.style.width = `${pct}%`;
+  document.getElementById('mem-progress-bar').style.width = `${pct}%`;
 }
 
 /* =========================================================================
-   STAGE 5: CARD STUDIO
+   STAGE 5: CARD STUDIO & DOWNLOAD
    ========================================================================= */
 function updateLiveCard() {
-  const fromInput = document.getElementById('card-input-from');
-  const themeSelect = document.getElementById('card-select-theme');
-  const quoteSelect = document.getElementById('card-select-quote');
-  const msgInput = document.getElementById('card-input-msg');
-
-  const from = fromInput ? fromInput.value : 'Your Annoying Brother (Momos) ❤️';
-  const theme = themeSelect ? themeSelect.value : 'royal';
-  const quoteOpt = quoteSelect ? quoteSelect.value : '1';
-  const msg = msgInput ? msgInput.value : '';
+  const from = document.getElementById('card-input-from').value || 'Your Annoying Brother';
+  const theme = document.getElementById('card-select-theme').value;
+  const quoteOpt = document.getElementById('card-select-quote').value;
+  const msg = document.getElementById('card-input-msg').value;
 
   const quoteMap = {
     "1": "“A sister is both your mirror and your biggest supporter in this world.”",
@@ -491,50 +481,38 @@ function updateLiveCard() {
     "3": "“No matter how much we tease each other, you will always be my number one.”"
   };
 
-  const outFrom = document.getElementById('card-out-from');
-  const outQuote = document.getElementById('card-out-quote');
-  const outMsg = document.getElementById('card-out-msg');
+  document.getElementById('card-out-from').innerText = `— FROM ${from.toUpperCase()}`;
+  document.getElementById('card-out-quote').innerText = quoteMap[quoteOpt] || quoteMap["1"];
+  document.getElementById('card-out-msg').innerText = msg;
+
   const cardBox = document.getElementById('card-preview-container');
-
-  if (outFrom) outFrom.innerText = `— FROM ${from.toUpperCase()}`;
-  if (outQuote) outQuote.innerText = quoteMap[quoteOpt] || quoteMap["1"];
-  if (outMsg) outMsg.innerText = msg;
-
-  if (cardBox) {
-    if (theme === 'crimson') {
-      cardBox.style.background = 'radial-gradient(circle at center, #6b0c2e 0%, #1a0209 100%)';
-    } else if (theme === 'orange') {
-      cardBox.style.background = 'radial-gradient(circle at center, #6d3200 0%, #1f0700 100%)';
-    } else {
-      cardBox.style.background = 'radial-gradient(circle at center, #350b52 0%, #150222 100%)';
-    }
+  if (theme === 'crimson') {
+    cardBox.style.background = 'radial-gradient(circle at center, #6b0c2e 0%, #1a0209 100%)';
+  } else if (theme === 'orange') {
+    cardBox.style.background = 'radial-gradient(circle at center, #6d3200 0%, #1f0700 100%)';
+  } else {
+    cardBox.style.background = 'radial-gradient(circle at center, #350b52 0%, #150222 100%)';
   }
 }
 
-function renderMagicalCardWithLoader() {
+window.renderMagicalCardWithLoader = function() {
   synthClick();
   const btn = document.getElementById('btn-generate-card');
-  if (btn) {
-    btn.innerText = "Weaving Golden Rakhi... ⏳";
-    btn.disabled = true;
-  }
+  btn.innerText = "Weaving Golden Rakhi... ⏳";
+  btn.disabled = true;
 
   setTimeout(() => {
     updateLiveCard();
-    if (btn) {
-      btn.innerText = "Re-Generate Card ✨";
-      btn.disabled = false;
-    }
+    btn.innerText = "Re-Generate Card ✨";
+    btn.disabled = false;
 
     const revealArea = document.getElementById('card-reveal-area');
-    if (revealArea) {
-      revealArea.classList.add('active');
-      revealArea.scrollIntoView({ behavior: 'smooth' });
-    }
+    revealArea.classList.add('active');
+    revealArea.scrollIntoView({ behavior: 'smooth' });
   }, 1000);
-}
+};
 
-function downloadCardAsCanvas() {
+window.downloadCardAsCanvas = function() {
   synthClick();
   const offCanvas = document.createElement('canvas');
   offCanvas.width = 800;
@@ -566,45 +544,40 @@ function downloadCardAsCanvas() {
 
   oCtx.font = '20px sans-serif';
   oCtx.fillStyle = '#ffe082';
-  const msgInput = document.getElementById('card-input-msg');
-  const customMsg = msgInput ? msgInput.value : '';
+  const customMsg = document.getElementById('card-input-msg').value;
   oCtx.fillText(customMsg.substring(0, 55), 400, 480);
   if (customMsg.length > 55) {
     oCtx.fillText(customMsg.substring(55, 110), 400, 520);
   }
 
-  const fromInput = document.getElementById('card-input-from');
-  const fromText = fromInput ? fromInput.value : 'Your Annoying Brother';
   oCtx.fillStyle = '#ff9800';
   oCtx.font = 'bold 22px sans-serif';
-  oCtx.fillText(`— ${fromText}`, 400, 820);
+  oCtx.fillText(`— ${document.getElementById('card-input-from').value}`, 400, 820);
 
   const link = document.createElement('a');
   link.download = 'Nidhu_Raksha_Bandhan_Card.png';
   link.href = offCanvas.toDataURL();
   link.click();
-}
+};
 
 /* =========================================================================
-   PARTICLE CANVAS ENGINE
+   CANVAS PARTICLES & CURSOR
    ========================================================================= */
 const canvas = document.getElementById('fx-canvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
 
 function resizeCanvas() {
-  if (canvas) {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 }
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
 class FestiveParticle {
   constructor(x, y) {
-    this.x = x || Math.random() * (canvas ? canvas.width : 500);
-    this.y = y || Math.random() * (canvas ? canvas.height : 500);
+    this.x = x || Math.random() * canvas.width;
+    this.y = y || Math.random() * canvas.height;
     this.size = Math.random() * 3 + 1;
     this.speedX = (Math.random() - 0.5) * 1.2;
     this.speedY = Math.random() * -1 - 0.3;
@@ -614,12 +587,11 @@ class FestiveParticle {
   update() {
     this.x += this.speedX;
     this.y += this.speedY;
-    if (this.y < 0 && canvas) this.y = canvas.height;
-    if (this.x < 0 && canvas) this.x = canvas.width;
-    if (this.x > (canvas ? canvas.width : 500)) this.x = 0;
+    if (this.y < 0) this.y = canvas.height;
+    if (this.x < 0) this.x = canvas.width;
+    if (this.x > canvas.width) this.x = 0;
   }
   draw() {
-    if (!ctx) return;
     ctx.save();
     ctx.globalAlpha = this.alpha;
     ctx.fillStyle = this.color;
@@ -635,18 +607,16 @@ for (let i = 0; i < 60; i++) {
 }
 
 function renderCanvasParticles() {
-  if (ctx && canvas) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-      p.update();
-      p.draw();
-    });
-  }
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    p.update();
+    p.draw();
+  });
   requestAnimationFrame(renderCanvasParticles);
 }
 renderCanvasParticles();
 
-function triggerHeroBlast(e) {
+window.triggerHeroBlast = function(e) {
   synthClick();
   const rect = e.currentTarget.getBoundingClientRect();
   const originX = rect.left + rect.width / 2;
@@ -658,7 +628,7 @@ function triggerHeroBlast(e) {
     particles.push(p);
   }
   alert("✨ A special Raksha Bandhan blessing for Nidhu!");
-}
+};
 
 window.addEventListener('mousemove', (e) => {
   const cur = document.getElementById('cursor');
@@ -671,20 +641,24 @@ window.addEventListener('mousemove', (e) => {
   }
 });
 
-function promptExit() {
+window.promptExit = function() {
   synthClick();
   const res = confirm("Leaving already, Nidhu? 🥹 Stay and cherish the festival a little longer!");
   if (res) {
     switchStage('stage-welcome');
   }
-}
+};
 
-/* Event listeners initialized on load */
 window.addEventListener('DOMContentLoaded', () => {
   initMemoriesGallery();
 
-  const heroAura = document.getElementById('hero-rakhi-btn');
-  const heroBadge = document.getElementById('hero-badge-btn');
-  if (heroAura) heroAura.addEventListener('click', triggerHeroBlast);
-  if (heroBadge) heroBadge.addEventListener('click', triggerHeroBlast);
+  // Tap outside card to dismiss memory modal
+  const modal = document.getElementById('memory-lightbox');
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        window.closeMemoryLightbox();
+      }
+    });
+  }
 });
