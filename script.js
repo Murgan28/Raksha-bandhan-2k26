@@ -26,118 +26,20 @@ const MUHURAT_DESCS = [
 ];
 
 const MEMORIES_DATA = [
-  { 
-    id: 1, 
-    title: "Chennai City Adventures", 
-    desc: "Overlooking the bustling streets of Chennai with you! Through all the traffic, cloudy skies, and city rush, every adventure is unforgettable, Nidhu.", 
-    imgSrc: "photo1.jpg", 
-    objectPos: "center center", 
-    svgColor: "#8e24aa" 
-  },
-  { 
-    id: 2, 
-    title: "Sacred Temple Blessings", 
-    desc: "Standing beneath the majestic gopuram, praying for your eternal peace, radiant health, and boundless success in everything you do.", 
-    imgSrc: "photo2.jpg", 
-    objectPos: "center 30%", 
-    svgColor: "#e91e63" 
-  },
-  { 
-    id: 3, 
-    title: "Sunny Garden Smiles", 
-    desc: "A bright smile that instantly lights up the entire room. Never stop sharing this genuine warmth with the world, Nidhu!", 
-    imgSrc: "photo3.jpg", 
-    objectPos: "center center", 
-    svgColor: "#ff6f00" 
-  },
-  { 
-    id: 4, 
-    title: "Partner in Crime & Laughs", 
-    desc: "That mischievous laugh when we both know we're up to no good! Truly the best teasing partner in the whole universe.", 
-    imgSrc: "photo4.jpg", 
-    objectPos: "center center", 
-    svgColor: "#3949ab" 
-  },
-  { 
-    id: 5, 
-    title: "Silly Cafe Shenanigans", 
-    desc: "Making funny faces while waiting for food under warm rustic cafe lights. No filter needed when we're together!", 
-    imgSrc: "photo5.jpg", 
-    objectPos: "center 65%", 
-    svgColor: "#00897b" 
-  },
-  { 
-    id: 6, 
-    title: "Food & Treat Dates", 
-    desc: "Sharing meals, talking about random life stories, and plotting our next street food run. The greatest memories are always the simplest ones.", 
-    imgSrc: "photo6.jpg", 
-    objectPos: "center 55%", 
-    svgColor: "#f4511e" 
-  },
-  { 
-    id: 7, 
-    title: "Casual Chill Hours", 
-    desc: "Just relaxing and catching up without any rush. Having you as a sister means never having to pretend—just pure comfort.", 
-    imgSrc: "photo7.jpg", 
-    objectPos: "center center", 
-    svgColor: "#d81b60" 
-  },
-  { 
-    id: 8, 
-    title: "Contagious Radiant Laughter", 
-    desc: "Eyes crinkled in absolute joy! Your laughter has a superpower: it makes everyone around you instantly happy, Nidhu.", 
-    imgSrc: "photo8.jpg", 
-    objectPos: "center center", 
-    svgColor: "#7b1fa2" 
-  },
-  { 
-    id: 9, 
-    title: "Rainy Bus Journeys", 
-    desc: "Looking out of raindrops on the window during public transit trips. Quiet, peaceful, and cherished sister moments.", 
-    imgSrc: "photo9.jpg", 
-    objectPos: "center 45%", 
-    svgColor: "#fb8c00" 
-  },
-  { 
-    id: 10, 
-    title: "Tall Dreams & Ambition", 
-    desc: "Standing tall against the skyline! May you reach higher than every skyscraper you admire. Always cheering for your big wins, Nidhu.", 
-    imgSrc: "photo10.jpg", 
-    objectPos: "center 25%", 
-    svgColor: "#1e88e5" 
-  },
-  { 
-    id: 11, 
-    title: "Reaching For The Stars", 
-    desc: "That radiant pose under the big towers! Keep smiling and conquering the world step by step, Nidhu.", 
-    imgSrc: "photo11.jpg", 
-    objectPos: "center 25%", 
-    svgColor: "#43a047" 
-  },
-  { 
-    id: 12, 
-    title: "Sacred Ground Memories", 
-    desc: "Smiles, festive vibes, and exploring temple grounds together. Moments that remain carved into our hearts forever.", 
-    imgSrc: "photo12.jpg", 
-    objectPos: "center 40%", 
-    svgColor: "#5e35b1" 
-  },
-  { 
-    id: 13, 
-    title: "Office Campus Shenanigans", 
-    desc: "Teasing faces, lanyards, and turning ordinary corporate courtyards into laughing galleries. Classic us!", 
-    imgSrc: "photo13.jpg", 
-    objectPos: "center 35%", 
-    svgColor: "#c2185b" 
-  },
-  { 
-    id: 14, 
-    title: "Coastal Breezes & Waves", 
-    desc: "Salty sea air, waves crashing, and that unforgettable candid smile looking back. Always & forever, my wonderful sister.", 
-    imgSrc: "photo14.jpg", 
-    objectPos: "center center", 
-    svgColor: "#f57c00" 
-  }
+  { id: 1, title: "Chennai City Adventures", desc: "Overlooking the bustling streets of Chennai with you! Through all the traffic, cloudy skies, and city rush, every adventure is unforgettable, Nidhu.", imgSrc: "photo1.jpg", objectPos: "center center", svgColor: "#8e24aa" },
+  { id: 2, title: "Sacred Temple Blessings", desc: "Standing beneath the majestic gopuram, praying for your eternal peace, radiant health, and boundless success in everything you do.", imgSrc: "photo2.jpg", objectPos: "center 30%", svgColor: "#e91e63" },
+  { id: 3, title: "Sunny Garden Smiles", desc: "A bright smile that instantly lights up the entire room. Never stop sharing this genuine warmth with the world, Nidhu!", imgSrc: "photo3.jpg", objectPos: "center center", svgColor: "#ff6f00" },
+  { id: 4, title: "Partner in Crime & Laughs", desc: "That mischievous laugh when we both know we're up to no good! Truly the best teasing partner in the whole universe.", imgSrc: "photo4.jpg", objectPos: "center center", svgColor: "#3949ab" },
+  { id: 5, title: "Silly Cafe Shenanigans", desc: "Making funny faces while waiting for food under warm rustic cafe lights. No filter needed when we're together!", imgSrc: "photo5.jpg", objectPos: "center 65%", svgColor: "#00897b" },
+  { id: 6, title: "Food & Treat Dates", desc: "Sharing meals, talking about random life stories, and plotting our next street food run. The greatest memories are always the simplest ones.", imgSrc: "photo6.jpg", objectPos: "center 55%", svgColor: "#f4511e" },
+  { id: 7, title: "Casual Chill Hours", desc: "Just relaxing and catching up without any rush. Having you as a sister means never having to pretend—just pure comfort.", imgSrc: "photo7.jpg", objectPos: "center center", svgColor: "#d81b60" },
+  { id: 8, title: "Contagious Radiant Laughter", desc: "Eyes crinkled in absolute joy! Your laughter has a superpower: it makes everyone around you instantly happy, Nidhu.", imgSrc: "photo8.jpg", objectPos: "center center", svgColor: "#7b1fa2" },
+  { id: 9, title: "Rainy Bus Journeys", desc: "Looking out of raindrops on the window during public transit trips. Quiet, peaceful, and cherished sister moments.", imgSrc: "photo9.jpg", objectPos: "center 45%", svgColor: "#fb8c00" },
+  { id: 10, title: "Tall Dreams & Ambition", desc: "Standing tall against the skyline! May you reach higher than every skyscraper you admire. Always cheering for your big wins, Nidhu.", imgSrc: "photo10.jpg", objectPos: "center 25%", svgColor: "#1e88e5" },
+  { id: 11, title: "Reaching For The Stars", desc: "That radiant pose under the big towers! Keep smiling and conquering the world step by step, Nidhu.", imgSrc: "photo11.jpg", objectPos: "center 25%", svgColor: "#43a047" },
+  { id: 12, title: "Sacred Ground Memories", desc: "Smiles, festive vibes, and exploring temple grounds together. Moments that remain carved into our hearts forever.", imgSrc: "photo12.jpg", objectPos: "center 40%", svgColor: "#5e35b1" },
+  { id: 13, title: "Office Campus Shenanigans", desc: "Teasing faces, lanyards, and turning ordinary corporate courtyards into laughing galleries. Classic us!", imgSrc: "photo13.jpg", objectPos: "center 35%", svgColor: "#c2185b" },
+  { id: 14, title: "Coastal Breezes & Waves", desc: "Salty sea air, waves crashing, and that unforgettable candid smile looking back. Always & forever, my wonderful sister.", imgSrc: "photo14.jpg", objectPos: "center center", svgColor: "#f57c00" }
 ];
 
 /* =========================================================================
@@ -206,7 +108,7 @@ window.toggleSongPlayback = function() {
 };
 
 /* =========================================================================
-   STAGE 1: DYNAMIC TIME & INTERACTIONS
+   STAGE 1: DYNAMIC TIME & HERO RAKHI BLAST
    ========================================================================= */
 function updateDynamicClock() {
   const now = new Date();
@@ -243,6 +145,23 @@ window.generateCompliment = function() {
   const textEl = document.getElementById('compliment-text');
   const rand = COMPLIMENTS[Math.floor(Math.random() * COMPLIMENTS.length)];
   if (textEl) textEl.innerText = rand;
+};
+
+window.triggerHeroBlast = function(e) {
+  if (e) e.stopPropagation();
+  synthClick();
+  
+  const originX = window.innerWidth / 2;
+  const originY = window.innerHeight / 3;
+
+  for (let i = 0; i < 50; i++) {
+    const p = new FestiveParticle(originX, originY);
+    p.speedX = (Math.random() - 0.5) * 14;
+    p.speedY = (Math.random() - 0.5) * 14;
+    particles.push(p);
+  }
+
+  alert("✨ Auspicious Raksha Bandhan blessing activated for Nidhu! May this bond remain golden forever ❤️");
 };
 
 /* =========================================================================
@@ -364,7 +283,7 @@ window.resolvePunishment = function(correctAnswer) {
 };
 
 /* =========================================================================
-   STAGE 4: 14 MEMORIES GALLERY & MODAL CLOSE
+   STAGE 4: 14 MEMORIES GALLERY
    ========================================================================= */
 function buildProceduralMemorySVG(title, color) {
   return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500">
@@ -616,20 +535,6 @@ function renderCanvasParticles() {
 }
 renderCanvasParticles();
 
-window.triggerHeroBlast = function(e) {
-  synthClick();
-  const rect = e.currentTarget.getBoundingClientRect();
-  const originX = rect.left + rect.width / 2;
-  const originY = rect.top + rect.height / 2;
-  for (let i = 0; i < 40; i++) {
-    const p = new FestiveParticle(originX, originY);
-    p.speedX = (Math.random() - 0.5) * 10;
-    p.speedY = (Math.random() - 0.5) * 10;
-    particles.push(p);
-  }
-  alert("✨ A special Raksha Bandhan blessing for Nidhu!");
-};
-
 window.addEventListener('mousemove', (e) => {
   const cur = document.getElementById('cursor');
   const dot = document.getElementById('cursor-dot');
@@ -652,12 +557,20 @@ window.promptExit = function() {
 window.addEventListener('DOMContentLoaded', () => {
   initMemoriesGallery();
 
-  // Tap outside card to dismiss memory modal
+  // Bind Touch The Rakhi to the whole hero cluster
+  const heroCluster = document.getElementById('hero-rakhi-interactive');
+  if (heroCluster) {
+    heroCluster.addEventListener('click', (e) => {
+      window.triggerHeroBlast(e);
+    });
+  }
+
+  // Tap outside modal card to dismiss
   const modal = document.getElementById('memory-lightbox');
   if (modal) {
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
-        window.closeMemoryLightbox();
+        window.closeMemoryLightbox(e);
       }
     });
   }
