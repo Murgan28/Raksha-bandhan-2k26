@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happiest Raksha Bandhan, Nidhu ❤️✨</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Audio Element (Make sure your file is named song.mp3) -->
+  <audio id="bg-audio" src="song.mp3" preload="auto" loop></audio>
+
+  <!-- Interactive FX Canvas -->
+  <canvas id="fx-canvas"></canvas>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="cursor"></div>
+  <div class="custom-cursor-dot" id="cursor-dot"></div>
+
+  <!-- =========================================================================
+       STAGE 1: WELCOME SANCTUARY (5 COMPLETE SECTIONS)
+       ========================================================================= -->
+  <div class="stage-view active" id="stage-welcome">
+    
+    <!-- SECTION 1: HERO -->
+    <header class="welcome-hero-section">
+      <div class="hero-rakhi-wrapper">
+        <div class="hero-rakhi-aura" id="hero-rakhi-btn">
+          <svg class="hero-rakhi-center" viewBox="0 0 120 120">
+            <defs>
+              <radialGradient id="rakhiGold" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fff8e1" />
+                <stop offset="50%" stop-color="#ffb300" />
+                <stop offset="100%" stop-color="#ff6f00" />
+              </radialGradient>
+            </defs>
+            <circle cx="60" cy="60" r="54" fill="none" stroke="#ffd54f" stroke-width="2" stroke-dasharray="3,3" />
+            <circle cx="60" cy="60" r="46" fill="rgba(106, 27, 154, 0.4)" stroke="#ff6f00" stroke-width="3" />
+            <g fill="#ffb300">
+              <circle cx="60" cy="14" r="5" />
+              <circle cx="60" cy="106" r="5" />
+              <circle cx="14" cy="60" r="5" />
+              <circle cx="106" cy="60" r="5" />
+              <circle cx="28" cy="28" r="4" />
+              <circle cx="92" cy="92" r="4" />
+              <circle cx="28" cy="92" r="4" />
+              <circle cx="92" cy="28" r="4" />
+            </g>
+            <circle cx="60" cy="60" r="30" fill="url(#rakhiGold)" stroke="#fff8e1" stroke-width="2" />
+            <circle cx="60" cy="60" r="18" fill="#4a148c" stroke="#ffd54f" stroke-width="2" />
+            <circle cx="60" cy="60" r="7" fill="#d50000" />
+          </svg>
+        </div>
+        <div class="hero-hint-badge" id="hero-badge-btn">TOUCH THE RAKHI ✨</div>
+      </div>
+
+      <p class="section-tag">An Auspicious Royal Celebration</p>
+      <h1 class="hero-name font-script gold-text">Happiest Raksha Bandhan Nidhu ❤️</h1>
+      <div class="hero-thread-line"></div>
+      
+      <p class="hero-desc">
+        Welcome to your bespoke digital universe, created exclusively for you. Every pixel, memory, sacred promise, and chord here is dedicated to my wonderful sister.
+      </p>
+    </header>
+
+    <!-- SECTION 2: COMMAND CENTER -->
+    <section class="section-container">
+      <div class="section-heading">
+        <span class="section-tag">FESTIVAL TIME & VENUE</span>
+        <h2 class="font-cinzel gold-text">Auspicious Coordinates</h2>
+      </div>
+
+      <div class="welcome-dashboard-grid">
+        <div class="glass-panel time-date-card">
+          <div class="card-icon-emblem">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          </div>
+          <p class="card-mini-tag">CURRENT SACRED TIME</p>
+          <div class="digital-time-display" id="welcome-digital-clock">00:00:00 AM</div>
+          <div class="dynamic-date-display" id="welcome-dynamic-date">Loading date...</div>
+          
+          <div class="festival-pill-badge">
+            <span class="live-dot"></span> Raksha Bandhan Special Live
+          </div>
+        </div>
+
+        <div class="glass-panel map-card">
+          <div class="map-visual-container">
+            <div class="map-grid-lines"></div>
+            <div class="map-road-line"></div>
+            
+            <div class="map-marker-pin">
+              <div class="map-pulse-ring"></div>
+              <div class="map-marker-core">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+            </div>
+
+            <div class="map-location-tag">
+              <span>Kilpauk, Chennai</span>
+            </div>
+          </div>
+          
+          <div class="map-details-text">
+            <h3 class="font-cinzel gold-text" style="font-size: 1.2rem;">Our Raksha Bandhan Story Corner 📍</h3>
+            <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 4px;">Where our laughter, silly fights, and golden memories live forever.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SACRED MUHURAT -->
+    <section class="section-container">
+      <div class="section-heading">
+        <span class="section-tag">SACRED TRADITION</span>
+        <h2 class="font-cinzel gold-text">The Essence of Our Bond</h2>
+      </div>
+
+      <div class="muhurat-grid">
+        <div class="glass-panel muhurat-card active" onclick="selectMuhurat(0, this)">
+          <div class="muhurat-icon">🌸</div>
+          <h3 class="font-cinzel" style="color: var(--gold-glow); margin: 8px 0;">Suraksha Sutra</h3>
+          <p style="font-size: 0.85rem; opacity: 0.85;">The sacred golden thread that carries eternal protection and warmth.</p>
+        </div>
+
+        <div class="glass-panel muhurat-card" onclick="selectMuhurat(1, this)">
+          <div class="muhurat-icon">🪔</div>
+          <h3 class="font-cinzel" style="color: var(--gold-glow); margin: 8px 0;">Akhand Joy</h3>
+          <p style="font-size: 0.85rem; opacity: 0.85;">A lifetime prayer for your endless happiness, health, and smiling face.</p>
+        </div>
+
+        <div class="glass-panel muhurat-card" onclick="selectMuhurat(2, this)">
+          <div class="muhurat-icon">👑</div>
+          <h3 class="font-cinzel" style="color: var(--gold-glow); margin: 8px 0;">Unstoppable Grace</h3>
+          <p style="font-size: 0.85rem; opacity: 0.85;">Celebrating your dreams, your hard work, and the wonderful person you are.</p>
+        </div>
+      </div>
+
+      <div class="glass-panel muhurat-focus-box" id="muhurat-desc-box">
+        <p class="font-serif" style="font-size: 1.15rem; line-height: 1.8; color: #fff8e1;">
+          “A sister is both a guardian of childhood memories and an inspiring guide for the future. Every Rakhi tied on my wrist is an eternal vow of loyalty and support, Nidhu.”
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 4: 4 PROMISES -->
+    <section class="section-container">
+      <div class="section-heading">
+        <span class="section-tag">UNBREAKABLE VOWS</span>
+        <h2 class="font-cinzel gold-text">Four Brotherly Promises</h2>
+        <p style="font-size: 0.9rem; opacity: 0.8;">Tap each card to unlock my personal promise to you</p>
+      </div>
+
+      <div class="vows-grid">
+        <div class="vow-card" onclick="toggleVowCard(this)">
+          <div class="vow-inner">
+            <div class="vow-front glass-panel">
+              <span class="vow-number font-cinzel">01</span>
+              <h3 class="font-cinzel gold-text">The Shield Promise</h3>
+              <p class="vow-tap-hint">Tap to Reveal ✨</p>
+            </div>
+            <div class="vow-back glass-panel">
+              <h4 class="font-cinzel" style="color: var(--gold-glow);">Always In Your Corner</h4>
+              <p>No matter how noisy the world gets, I will always stand beside you, protect your dreams, and have your back, Nidhu.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="vow-card" onclick="toggleVowCard(this)">
+          <div class="vow-inner">
+            <div class="vow-front glass-panel">
+              <span class="vow-number font-cinzel">02</span>
+              <h3 class="font-cinzel gold-text">The Laughter Pact</h3>
+              <p class="vow-tap-hint">Tap to Reveal ✨</p>
+            </div>
+            <div class="vow-back glass-panel">
+              <h4 class="font-cinzel" style="color: var(--festive-orange);">Never-Ending Smiles</h4>
+              <p>I promise to keep cracking silly jokes, making you laugh, and teasing you even when we're 80 years old!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="vow-card" onclick="toggleVowCard(this)">
+          <div class="vow-inner">
+            <div class="vow-front glass-panel">
+              <span class="vow-number font-cinzel">03</span>
+              <h3 class="font-cinzel gold-text">The Food Treaty</h3>
+              <p class="vow-tap-hint">Tap to Reveal ✨</p>
+            </div>
+            <div class="vow-back glass-panel">
+              <h4 class="font-cinzel" style="color: var(--soft-pink);">Unlimited Momos</h4>
+              <p>Whenever you crave street food, sweets, or late-night snacks, your brother is always ready for a food run.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="vow-card" onclick="toggleVowCard(this)">
+          <div class="vow-inner">
+            <div class="vow-front glass-panel">
+              <span class="vow-number font-cinzel">04</span>
+              <h3 class="font-cinzel gold-text">The Cheerleader Vow</h3>
+              <p class="vow-tap-hint">Tap to Reveal ✨</p>
+            </div>
+            <div class="vow-back glass-panel">
+              <h4 class="font-cinzel" style="color: var(--gold-glow);">Proudest Supporter</h4>
+              <p>I promise to celebrate every victory of yours and remind you how extraordinary you are on days you forget.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: MOOD BOOSTER -->
+    <section class="section-container">
+      <div class="section-heading">
+        <span class="section-tag">INSTANT JOY</span>
+        <h2 class="font-cinzel gold-text">Nidhu's Compliment Dial</h2>
+      </div>
+
+      <div class="glass-panel mood-booster-panel">
+        <div class="mood-sparkle-icon">✨</div>
+        <p class="font-serif mood-text-display" id="compliment-text">
+          “You bring a light into this family that nobody else ever could. Stay fabulous, Nidhu!”
+        </p>
+        <button class="btn-gold" onclick="generateCompliment()">Tap for Another Smile 💫</button>
+      </div>
+    </section>
+
+    <!-- STAGE 1 CTA BUTTON -->
+    <div class="stage-cta-wrap">
+      <p class="section-tag" style="letter-spacing: 5px;">THE JOURNEY CONTINUES</p>
+      <h2 class="font-cinzel gold-text" style="font-size: 2rem; margin: 8px 0 25px;">Ready To Unlock The Vault?</h2>
+      <button class="btn-gold-royal" onclick="startLoadingPortal()">
+        <span class="font-cinzel">Begin Sacred Journey</span>
+        <svg viewBox="0 0 24 24" class="btn-arrow-icon"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- =========================================================================
+       STAGE 2: 18-SECOND LOADING PORTAL
+       ========================================================================= -->
+  <div class="stage-view" id="stage-loading">
+    <div class="loading-portal-container">
+      <div class="portal-rakhi-spinner">
+        <div class="portal-outer-ring"></div>
+        <div class="portal-mid-ring"></div>
+        <div class="portal-core-jewel"></div>
+        <span class="portal-seconds-digit" id="loading-seconds-num">18</span>
+      </div>
+
+      <p class="section-tag" style="letter-spacing: 5px; margin-top: 25px;">CINEMATIC TRANSITION</p>
+      <h2 class="font-cinzel gold-text" style="font-size: 2.2rem; margin: 10px 0;">Weaving A Sacred Universe</h2>
+      <p class="font-serif loading-sub-message" id="portal-msg-text">Gathering golden threads of memories...</p>
+
+      <div class="portal-bar-track">
+        <div class="portal-bar-fill" id="portal-progress-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       STAGE 3: PASSCODE SCREEN
+       ========================================================================= -->
+  <div class="stage-view" id="stage-passcode">
+    <div class="passcode-container">
+      
+      <svg class="lock-rakhi-symbol" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="42" fill="none" stroke="#ffd54f" stroke-width="2" stroke-dasharray="4,3" />
+        <circle cx="50" cy="50" r="32" fill="none" stroke="#ff6f00" stroke-width="3" />
+        <circle cx="50" cy="50" r="22" fill="#4a148c" stroke="#ffd54f" stroke-width="2" />
+        <polygon points="50,32 55,45 68,50 55,55 50,68 45,55 32,50 45,45" fill="#ffd54f" />
+        <circle cx="50" cy="50" r="6" fill="#ff1744" />
+      </svg>
+      
+      <p class="section-tag" style="letter-spacing: 4px;">A SECRET FOR YOU</p>
+      <h2 class="font-cinzel gold-text" style="font-size: clamp(1.8rem, 4vw, 2.6rem); margin-top: 6px;">Only Nidhu Can Enter ❤️</h2>
+      <p style="opacity: 0.8; font-size: 0.95rem; margin-top: 6px;">Enter our auspicious Rakhi date: <strong>28-08-2026</strong></p>
+
+      <div class="pin-display-wrap" id="pin-wrap">
+        <div class="pin-dot" id="dot-0"></div>
+        <div class="pin-dot" id="dot-1"></div>
+        <div class="pin-dot" id="dot-2"></div>
+        <div class="pin-dot" id="dot-3"></div>
+        <div class="pin-dot" id="dot-4"></div>
+        <div class="pin-dot" id="dot-5"></div>
+        <div class="pin-dot" id="dot-6"></div>
+        <div class="pin-dot" id="dot-7"></div>
+      </div>
+
+      <div class="keypad-grid">
+        <button class="key-btn" onclick="enterKey('1')">1</button>
+        <button class="key-btn" onclick="enterKey('2')">2</button>
+        <button class="key-btn" onclick="enterKey('3')">3</button>
+        <button class="key-btn" onclick="enterKey('4')">4</button>
+        <button class="key-btn" onclick="enterKey('5')">5</button>
+        <button class="key-btn" onclick="enterKey('6')">6</button>
+        <button class="key-btn" onclick="enterKey('7')">7</button>
+        <button class="key-btn" onclick="enterKey('8')">8</button>
+        <button class="key-btn" onclick="enterKey('9')">9</button>
+        <button class="key-btn" style="font-size: 0.9rem; color: #ff8a80;" onclick="clearKey()">CLR</button>
+        <button class="key-btn" onclick="enterKey('0')">0</button>
+        <button class="key-btn" style="font-size: 0.9rem; color: #69f0ae;" onclick="submitManualPin()">↵</button>
+      </div>
+
+      <p id="lock-error-msg" class="error-text-line"></p>
+
+    </div>
+  </div>
+
+  <!-- PUNISHMENT MODAL (3+ WRONG ATTEMPTS) -->
+  <div class="punishment-modal" id="punishment-modal">
+    <div class="punishment-card glass-panel">
+      <div style="font-size: 3rem; margin-bottom: 10px;">😂👑</div>
+      <p class="section-tag">PUNISHMENT UNLOCKED</p>
+      <h3 class="font-cinzel gold-text" style="font-size: 1.6rem; margin: 8px 0;">Aiyo Nidhu! 3 Failed Attempts!</h3>
+      <p style="font-size: 0.95rem; opacity: 0.9; line-height: 1.6; margin-bottom: 20px;">
+        To unlock the keypad again, answer this important brother-sister question:
+      </p>
+
+      <div class="punishment-riddle-box">
+        <p class="font-serif" style="color: #ffd54f; font-size: 1.1rem;">"Who is officially the most awesome & prettiest sister in Chennai?"</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
+        <button class="btn-gold" onclick="resolvePunishment(true)">A) Nidhu (Obviously! ❤️)</button>
+        <button class="btn-gold" style="background: rgba(255,255,255,0.08); color: #fff;" onclick="resolvePunishment(false)">B) Someone else (Wrong answer! 😂)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       STAGE 4: 14 MEMORIES GALLERY
+       ========================================================================= -->
+  <div class="stage-view" id="stage-memories">
+    <div class="section-container">
+      
+      <div class="section-heading">
+        <p class="section-tag">Digital Scrapbook</p>
+        <h2 class="font-cinzel gold-text" style="font-size: clamp(2rem, 5vw, 3rem);">Our Unforgettable Memories 📸</h2>
+        <p style="opacity: 0.85;">Fourteen golden chapters from our story, Nidhu</p>
+      </div>
+
+      <div class="memory-progress-bar-wrap">
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; color: var(--gold-glow);">
+          <span>EXPLORATION PROGRESS</span>
+          <span id="mem-unlocked-count">Memory 00 / 14</span>
+        </div>
+        <div class="memory-progress-track">
+          <div class="memory-progress-fill" id="mem-progress-bar"></div>
+        </div>
+      </div>
+
+      <div class="gallery-grid" id="memories-grid-target"></div>
+
+      <div style="text-align: center; margin: 60px 0 30px;">
+        <button class="btn-gold-royal" onclick="switchStage('stage-card-studio')">
+          <span class="font-cinzel">Open Card Studio</span>
+          <svg viewBox="0 0 24 24" class="btn-arrow-icon"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       STAGE 5: CARD STUDIO
+       ========================================================================= -->
+  <div class="stage-view" id="stage-card-studio">
+    <div class="section-container">
+      
+      <div class="section-heading">
+        <p class="section-tag">Interactive Keepsake</p>
+        <h2 class="font-cinzel gold-text" style="font-size: clamp(2rem, 5vw, 3rem);">Raksha Bandhan Card Studio 💌</h2>
+        <p style="opacity: 0.85;">Customize your festive card, then tap Generate to unveil and download</p>
+      </div>
+
+      <div class="card-studio-form-center">
+        <div class="glass-panel studio-form-panel">
+          <div class="form-group">
+            <label>Sister's Name</label>
+            <input type="text" class="studio-input" id="card-input-name" value="Nidhu" readonly />
+          </div>
+          <div class="form-group">
+            <label>From</label>
+            <input type="text" class="studio-input" id="card-input-from" value="Your Annoying Brother (Momos) ❤️" />
+          </div>
+          <div class="form-group">
+            <label>Card Theme</label>
+            <select class="studio-select" id="card-select-theme">
+              <option value="royal">Royal Purple & Gold</option>
+              <option value="crimson">Crimson Celebration</option>
+              <option value="orange">Festival Sunset Orange</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Select Quote</label>
+            <select class="studio-select" id="card-select-quote">
+              <option value="1">“A sister is both your mirror and your biggest supporter in this world.”</option>
+              <option value="2">“Threads of gold, memories of joy, and a bond that only gets stronger with time.”</option>
+              <option value="3">“No matter how much we tease each other, you will always be my number one.”</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Custom Message</label>
+            <textarea class="studio-textarea" rows="3" id="card-input-msg">May your life be filled with limitless happiness, brilliant success, and endless laughter, Nidhu. Always proud of you!</textarea>
+          </div>
+          <button class="btn-gold" id="btn-generate-card" style="width: 100%;" onclick="renderMagicalCardWithLoader()">
+            Generate High-Res Card ✨
+          </button>
+        </div>
+      </div>
+
+      <!-- Card Reveal Area -->
+      <div class="card-reveal-wrapper" id="card-reveal-area">
+        <div class="generated-card-display" id="card-preview-container">
+          <svg class="card-mandala-bg" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="#ffd54f" stroke-width="1" stroke-dasharray="2,2"/>
+            <circle cx="50" cy="50" r="35" fill="none" stroke="#ff6f00" stroke-width="1.5"/>
+            <circle cx="50" cy="50" r="20" fill="none" stroke="#ffd54f" stroke-width="1"/>
+          </svg>
+
+          <p class="section-tag" id="card-out-badge" style="letter-spacing: 4px; margin-bottom: 10px;">HAPPY RAKSHA BANDHAN</p>
+          <h2 class="font-script gold-text" id="card-out-name" style="font-size: 3.5rem; margin-bottom: 10px;">Nidhu ❤️</h2>
+          <div class="hero-thread-line" style="width: 140px; margin-bottom: 18px;"></div>
+          
+          <p class="font-serif" id="card-out-quote" style="font-size: 1.05rem; font-style: italic; color: #ffe082; max-width: 480px; margin-bottom: 16px;">
+            “A sister is both your mirror and your biggest supporter in this world.”
+          </p>
+          <p id="card-out-msg" style="font-size: 0.95rem; line-height: 1.6; opacity: 0.9; max-width: 450px; margin-bottom: 25px;">
+            May your life be filled with limitless happiness, brilliant success, and endless laughter, Nidhu. Always proud of you!
+          </p>
+          <p class="font-cinzel" id="card-out-from" style="font-size: 0.85rem; color: var(--festive-orange); font-weight: 700;">
+            — FROM YOUR ANNOYING BROTHER (MOMOS) ❤️
+          </p>
+
+          <div style="display: flex; gap: 12px; margin-top: 30px;">
+            <button class="btn-gold" style="padding: 12px 24px;" onclick="downloadCardAsCanvas()">Download Kept Card 📥</button>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin: 50px 0 20px;">
+          <button class="btn-gold-royal" onclick="switchStage('stage-final')">
+            <span class="font-cinzel">View Final Closing</span>
+            <svg viewBox="0 0 24 24" class="btn-arrow-icon"><path d="M5 13h11.86l-5.43 5.43 1.42 1.42L21.14 12l-8.29-8.29-1.42 1.42 5.43 5.43H5v2z"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       STAGE 6: FINAL SANCTUARY & MUSIC PLAYER
+       ========================================================================= -->
+  <div class="stage-view" id="stage-final">
+    <div class="final-sanctuary">
+      
+      <p class="section-tag" style="letter-spacing: 6px;">From The Heart</p>
+      <h2 class="hero-name font-script gold-text" style="font-size: clamp(2.8rem, 7vw, 5rem);">Happiest Raksha Bandhan, Nidhu ❤️</h2>
+      <div class="hero-thread-line" style="width: 220px;"></div>
+
+      <div class="final-letter-parchment font-serif">
+        <p>Through all the laughter, random conversations, silly fights, shared memories and ordinary moments, you have become one of the most special people in my life.</p>
+        <p>Thank you for always being there. Thank you for being my sister. Thank you for being my friend. Thank you for being you.</p>
+        <p>No matter where life takes us, I hope we always have these little memories to look back on.</p>
+        <p style="font-size: 1.3rem; color: var(--gold-glow); font-weight: 700;">
+          Keep smiling. Keep dancing. Keep dreaming. Keep being the beautiful Nidhu that you are.
+        </p>
+        <p style="margin-top: 30px; font-family: 'Great Vibes', cursive; font-size: 2.2rem; color: var(--festive-orange);">
+          And remember... your annoying brother will always be cheering for you. ❤️
+        </p>
+      </div>
+
+      <!-- Real Song Audio Deck -->
+      <div class="glass-panel" style="max-width: 600px; margin: 40px auto; padding: 25px;">
+        <h3 class="font-cinzel gold-text" style="font-size: 1.2rem; margin-bottom: 10px;">Our Raksha Bandhan Soundtrack 🎵</h3>
+        <p id="final-track-info" style="font-size: 0.85rem; opacity: 0.85; margin-bottom: 15px; color: #ffe082;">
+          Dhaagon Se Baandhaa • Arijit Singh & Shreya Ghoshal
+        </p>
+        
+        <button class="btn-gold" id="music-play-btn" onclick="toggleSongPlayback()">
+          Play Song 🎵
+        </button>
+      </div>
+
+      <div class="action-center-nav">
+        <button class="btn-gold" onclick="switchStage('stage-welcome')">🏠 Return To Beginning</button>
+        <button class="btn-gold" onclick="switchStage('stage-memories')">📸 Re-visit Memories</button>
+        <button class="btn-gold" onclick="switchStage('stage-card-studio')">💌 Generate Another Card</button>
+        <button class="btn-gold" style="background: rgba(255,255,255,0.1); color: #fff;" onclick="promptExit()">🚪 Exit Experience</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FULLSCREEN LIGHTBOX -->
+  <div id="memory-lightbox">
+    <div class="lightbox-card">
+      <button class="lightbox-close-btn" onclick="closeMemoryLightbox()">✕</button>
+      <div class="lightbox-img-box">
+        <img id="lb-img" src="" alt="Nidhu Memory" />
+      </div>
+      <div class="lightbox-info">
+        <div>
+          <p class="section-tag" id="lb-tag">MEMORY 01 OF 14</p>
+          <h3 class="font-cinzel gold-text" id="lb-title" style="font-size: 1.8rem; margin: 10px 0;"></h3>
+          <p class="font-serif" id="lb-desc" style="line-height: 1.8; opacity: 0.9; margin-top: 15px; font-size: 1.05rem;"></p>
+        </div>
+        <div style="display: flex; gap: 15px; margin-top: 30px;">
+          <button class="btn-gold" style="flex: 1; padding: 12px;" onclick="prevMemory()">← Previous</button>
+          <button class="btn-gold" style="flex: 1; padding: 12px;" onclick="nextMemory()">Next →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
