@@ -752,39 +752,82 @@ body {
 .frame-mem-title { font-size: 1.15rem; margin-top: 4px; color: var(--champagne); }
 
 /* Lightbox Modal */
+/* =========================================================================
+   FIXED FULLSCREEN LIGHTBOX & CLOSE BUTTON
+   ========================================================================= */
 #memory-lightbox {
   position: fixed;
   inset: 0;
-  z-index: 10000;
-  background: rgba(10, 2, 18, 0.95);
+  z-index: 100000;
+  background: rgba(10, 2, 18, 0.96);
   backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding: 20px;
   opacity: 0;
   visibility: hidden;
-  transition: var(--trans-cinematic);
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
-#memory-lightbox.active { opacity: 1; visibility: visible; }
+
+#memory-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
 .lightbox-card {
   max-width: 920px;
   width: 100%;
+  max-height: 90vh;
   background: linear-gradient(135deg, #240938, #12021d);
   border: 2px solid var(--gold-primary);
   border-radius: var(--radius-lg);
   display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  overflow: hidden;
+  grid-template-columns: 1.2fr 1fr;
+  overflow-y: auto;
   position: relative;
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.95);
 }
+
 @media (max-width: 768px) {
-  .lightbox-card { grid-template-columns: 1fr; max-height: 88vh; overflow-y: auto; }
+  .lightbox-card {
+    grid-template-columns: 1fr;
+    max-height: 85vh;
+  }
 }
+
+/* Floating High-Visibility Close Button */
+.lightbox-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(216, 27, 96, 0.9);
+  border: 2px solid #ffd54f;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 99999;
+  box-shadow: 0 0 20px rgba(255, 213, 79, 0.6);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.lightbox-close-btn:hover,
+.lightbox-close-btn:active {
+  transform: scale(1.1);
+  background: #c2185b;
+}
+
 .lightbox-img-box {
   width: 100%;
-  min-height: 400px;
+  min-height: 320px;
   background: #090111;
   display: flex;
   align-items: center;
@@ -792,26 +835,22 @@ body {
   position: relative;
   padding: 10px;
 }
+
 .lightbox-img-box img {
   width: 100%;
   height: 100%;
-  max-height: 520px;
+  max-height: 480px;
   object-fit: contain;
   border-radius: var(--radius-sm);
 }
-.lightbox-info { padding: 35px 25px; display: flex; flex-direction: column; justify-content: space-between; }
-.lightbox-close-btn {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid var(--gold-primary);
-  color: #fff;
-  cursor: pointer;
+
+.lightbox-info {
+  padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
 
 /* STAGE 5: CARD STUDIO */
 .card-studio-form-center {
